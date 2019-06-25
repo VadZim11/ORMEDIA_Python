@@ -1,3 +1,3 @@
-from hello import text
+from text import text
 
 print(text)
