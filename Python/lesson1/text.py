@@ -1,3 +1,1 @@
 text = "Hello!"
-
-print(text)
