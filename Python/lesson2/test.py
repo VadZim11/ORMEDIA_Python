@@ -1,3 +1,3 @@
-naber = 5
+namber = 5
 text = "Text"
 # Comment
