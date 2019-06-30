@@ -9,9 +9,12 @@ while gvest < 5:
     number_2 = int(input())
     gvest += 1
 
-    if gvest == 5:
-        print("LOSER. Number was: " + str(number_1))
-        break
+    if number_2 < number_1:
+        print("Too low, try again")
+    if number_2 > number_1:
+        print("So high, try again")
     if number_2 == number_1:
-        print("WIN")
+        print("WIN.")
         break
+else:
+    print("LUSER. Number was: " + str(number_1))
