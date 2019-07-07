@@ -65,3 +65,38 @@ print("List afte map: " + str(list_2))
 
 list_2 = list(filter(chet_nechet_fun, list_1))
 print("List afte filter: " + str(list_2))
+
+# Создадим чистую и нечистую функцию
+
+def clean_fun(x):
+    a = 2
+    return x*a
+
+a = 3
+def no_clean_fun(x):
+    return x*a
+
+# Сделать функцию поиска минимума и максимума в списке
+
+def max_fun(list_fun):
+    a = list_fun[0]
+    for i in list_fun:
+        if i > a:
+            a = i
+    return a  
+
+def min_fun(list_fun):
+    a = list_fun[0]
+    for i in list_fun:
+        if i < a:
+            a = i
+    return a  
+
+list_test = [1, 23, 52, 8, 65, 32, 21]
+
+print("Test list: " + str(list_test))
+print("Max in list: " + str(max_fun(list_test)))
+print("Min in list: " + str(min_fun(list_test)))
+
+# Написать функцию, которая определяет, является ли год високосным. Пользователь вводит год, если он високосный, то функция возвращает True. Если нет, то False
+
