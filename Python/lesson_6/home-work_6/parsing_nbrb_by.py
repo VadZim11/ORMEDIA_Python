@@ -13,6 +13,8 @@ def get_data(html):
 
 def main():
     url = "https://nbrb.by/API/ExRates/Rates?Periodicity=0"
+
+    # print(get_data(get_html(url)))
     list_cur = ast.literal_eval((get_data(get_html(url))))
 
     # print(list_cur[0])
@@ -20,7 +22,8 @@ def main():
 
     for i in range(len(list_cur)) :
         # if str(list_cur[i]["Cur_Abbreviation"]) == "USD" or str(list_cur[i]["Cur_Abbreviation"]) == "RUB" or str(list_cur[i]["Cur_Abbreviation"]) == "EUR" :
-            print(str(list_cur[i]["Date"])[0:10] + " rate 1 " 
+            print(str(list_cur[i]["Date"])[0:10] + " rate " 
+            + str(list_cur[i]["Cur_Name"]) + " 1 "
             + str(list_cur[i]["Cur_Abbreviation"])
             + " - " +  str(list_cur[i]["Cur_OfficialRate"]) 
             + " BIN")
