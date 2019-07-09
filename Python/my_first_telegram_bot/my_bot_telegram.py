@@ -1,15 +1,15 @@
 import requests
-from token import token
+from my_token import token
 
 URL = "https://api.telegram.org/bot" + str(token) + "/"
 
-def get_updete(html):
-    url + URL + "getupdates"
+def get_updates():
+    url = URL + "getupdates"
     r = requests.get(url)
     print(r)
 
 def main():
-    get_updete()
+    get_updates()
 
 if __name__ == "__main__":
     main()
