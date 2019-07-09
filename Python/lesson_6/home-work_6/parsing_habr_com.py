@@ -31,8 +31,12 @@ def main():
     for i in range(1, finish_page) :
         url = "https://habr.com/top/monthly//page" + str(i) + "/"
         list_articles_habr = list_articles_habr + list(get_data(get_html(url)))
+    
+    list_articles_habr.sort()
+    print("За месяц вышло " + str(len(list_articles_habr)) + " статей: ")
 
-    print("За месяц вышло " + str(len(list_articles_habr)) + " статей: " + str(list_articles_habr))
+    for i in range(len(list_articles_habr)):
+        print("- " + str(list_articles_habr[i]))
 
 if __name__ == "__main__":
     main()
