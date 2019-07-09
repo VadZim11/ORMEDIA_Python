@@ -22,8 +22,9 @@ def main():
 
     for i in range(len(list_cur)) :
         # if str(list_cur[i]["Cur_Abbreviation"]) == "USD" or str(list_cur[i]["Cur_Abbreviation"]) == "RUB" or str(list_cur[i]["Cur_Abbreviation"]) == "EUR" :
-            print(str(list_cur[i]["Date"])[0:10] + " rate " 
-            + str(list_cur[i]["Cur_Name"]) + " 1 "
+            print("- " + str(list_cur[i]["Date"])[0:10] + " rate " 
+            + str(list_cur[i]["Cur_Name"]) + " "
+            + str(list_cur[i]["Cur_Scale"]) + " "
             + str(list_cur[i]["Cur_Abbreviation"])
             + " - " +  str(list_cur[i]["Cur_OfficialRate"]) 
             + " BIN")
