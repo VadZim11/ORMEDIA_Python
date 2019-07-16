@@ -30,34 +30,23 @@ def get_money():
 
 
 def main():    
-    #d = get_updates()
-    #m = get_money()
-    #et_message()
-
-    #with open("updates.json", "w") as file:
-     #  json.dump(d, file, indent=2, ensure_ascii=False)
-
-    #with open("money.json", "w") as file:
-     #  json.dump(m, file, indent=2, ensure_ascii=False)
-
-    #print(get_message())
+    
     money = get_money() 
     curs_money = ""   
 
-    for i in range(len(money) -1):
+    for i in range(len(money)):
         curs_money += "- " + str(money[i]["Date"])[0:10] + " rate " + str(money[i]["Cur_Name"]) + " " + str(money[i]["Cur_Scale"]) + " " + str(money[i]["Cur_Abbreviation"]) + " - " +  str(money[i]["Cur_OfficialRate"]) + " BIN\n"
 
-    curs_money += "- " + str(money[-1]["Date"])[0:10] + " rate " + str(money[-1]["Cur_Name"]) + " " + str(money[-1]["Cur_Scale"]) + " " + str(money[-1]["Cur_Abbreviation"]) + " - " +  str(money[-1]["Cur_OfficialRate"]) + " BIN"
-    print(curs_money)
     answer = get_message()
     chat_id = answer["chat_id"]
     text = answer["text"]
 
-    if "ничего" in text:
-        send_message(chat_id, "Тогда покедово))")
+    answers = {"ничего":"ничего", "курс":curs_money, "привет":"привет"}
 
-    if "курс" in text:
-        send_message(chat_id, curs_money)    
+    if text in answers:
+        send_message(chat_id, answers[text])
+    else:
+        send_message(chat_id, "Извини такого запроса я не знаю(")  
 
 if __name__ == "__main__":
     main()
