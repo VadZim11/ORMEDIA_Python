@@ -19,9 +19,9 @@ def get_message():
     return message
 
 def send_message(chat_id, text):
-     url = URL + "sendmessage?chat_id={}&text={}".format(chat_id, text)
-     print(url)
-     requests.get(url)
+    url = URL + "sendmessage?chat_id={}&text={}".format(chat_id, text)
+    print(url)
+    requests.get(url)
 
 def get_money():
     url = "http://www.nbrb.by/API/ExRates/Rates?Periodicity=0"
