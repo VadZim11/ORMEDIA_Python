@@ -28,14 +28,17 @@ def get_money():
     r = requests.get(url)
     return r.json()
 
-
-def main():    
-    
+def main():
     money = get_money() 
-    curs_money = ""   
+    #curs_money = ""   
 
     for i in range(len(money)):
-        curs_money += "- " + str(money[i]["Date"])[0:10] + " rate " + str(money[i]["Cur_Name"]) + " " + str(money[i]["Cur_Scale"]) + " " + str(money[i]["Cur_Abbreviation"]) + " - " +  str(money[i]["Cur_OfficialRate"]) + " BIN\n"
+        if str(money[i]["Cur_Abbreviation"]) == "USD":
+            curs_money = ("- " + str(money[i]["Date"])[0:10] 
+                + " rate " + str(money[i]["Cur_Name"]) + " " 
+                + str(money[i]["Cur_Scale"]) + " " 
+                + str(money[i]["Cur_Abbreviation"]) + " - "
+                +  str(money[i]["Cur_OfficialRate"]) + " BIN")
 
     answer = get_message()
     chat_id = answer["chat_id"]
