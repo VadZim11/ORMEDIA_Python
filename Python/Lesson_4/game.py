@@ -1,11 +1,11 @@
 import random
 
-number_1 = random.randint(1, 25)
+number_1 = random.randint(1, 100)
 
 gvest = 0
 
-while gvest < 5:
-    print("Enter a number from 1 to 25")
+while gvest < 7:
+    print("Enter a number from 1 to 100")
     number_2 = int(input())
     gvest += 1
 

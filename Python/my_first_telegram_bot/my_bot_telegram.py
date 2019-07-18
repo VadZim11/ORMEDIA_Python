@@ -1,25 +1,29 @@
 import requests
 import json
-from my_token import token
+from my_token import TOKEN
 
-URL = "https://api.telegram.org/bot" + str(token) + "/"
+URL = f"https://api.telegram.org/bot{TOKEN}"
 
 def get_updates():
-    url = URL + "getupdates"
+    url = f"{URL}/getupdates"
     r = requests.get(url)
+    #print(r.json())
     return r.json()
 
 def get_message():
     data = get_updates()
     chat_id = data["result"][-1]["message"]["chat"]["id"]
+    message_id = data["result"][-1]["message"]["message_id"]
     message_text = data["result"][-1]["message"]["text"]
 
-    message ={"chat_id": chat_id, "text": message_text}
+    message ={"chat_id": chat_id, "text": message_text, "message_id": message_id}
+
+    print(message)
 
     return message
 
 def send_message(chat_id, text):
-    url = URL + "sendmessage?chat_id={}&text={}".format(chat_id, text)
+    url =f"{URL}/sendmessage?chat_id={chat_id}&text={text}"#.format(, , )
     print(url)
     requests.get(url)
 
@@ -33,7 +37,7 @@ def main():
     #curs_money = ""   
 
     for i in range(len(money)):
-        if str(money[i]["Cur_Abbreviation"]) == "USD":
+        if str(money[i]["Cur_Abbreviation"]) == "EUR":
             curs_money = ("- " + str(money[i]["Date"])[0:10] 
                 + " rate " + str(money[i]["Cur_Name"]) + " " 
                 + str(money[i]["Cur_Scale"]) + " " 
