@@ -29,7 +29,7 @@ def get_money(text):
         return data
 
 def main():
-    get_money("курс")
+    print(get_money("курс"))
 
 if __name__ == "__main__":
     main()

@@ -10,8 +10,8 @@ def gen_markup():
     markup.row_width = 3
     markup.add(InlineKeyboardButton("USD", callback_data="USD"),
                 InlineKeyboardButton("EUR", callback_data="EUR"),
-                InlineKeyboardButton("RUB", callback_data="RUB"),
-                InlineKeyboardButton("ALL", callback_data="ALL"))
+                InlineKeyboardButton("RUB", callback_data="RUB"))
+                #InlineKeyboardButton("ALL", callback_data="ALL"))
     return markup
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -29,8 +29,6 @@ def callback_query(call):
 @bot.message_handler(content_types=["text"])
 def send_text(message):
 
-    #print(chat_handler)
-
     if message.text == "что я писал 5 сообщений назад":
         bot.send_message(message.chat.id, "Привет!")    
     if message.text == "Привет":
@@ -41,8 +39,5 @@ def send_text(message):
         bot.send_message(message.chat.id, "Выбери валюту", reply_markup = gen_markup())
     else :
         bot.send_message(message.chat.id, "Ты что несешь?")
-
-
-
 
 bot.polling()
