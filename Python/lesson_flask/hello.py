@@ -1,9 +1,13 @@
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 @app.route("/")
-def hello ():
-    return "Hello"
+def index():
+    return "<h1>Hello World<h1>"
 
-if __name__ == "__main__":    
+@app.route("/hello")
+def hello():
+    return f"<h2>Hello, {request.args}<h2>" 
+
+if __name__ == "__main__":  
     app.run()
